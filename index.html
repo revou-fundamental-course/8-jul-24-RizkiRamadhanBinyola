@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Rizki Ramadan Binyola</title>
+    <link rel="stylesheet" href="css/style.css">
+    <script defer src="js/script.js"></script>
 </head>
 <body>
     <header>
@@ -11,42 +13,132 @@
     </header>
 
     <main>
-        <!-- Artikel Utama -->
-        <article>
-            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Tenetur repellat fugit eaque quis molestiae magni eos, laudantium aliquid exercitationem deserunt sequi animi debitis harum perferendis laborum quas ipsum voluptatem quasi!</p>
-        </article>
-
-        <!-- Form -->
-        <section>
-            <form>
-                
-            </form>
+        <section class="main-section">
+            <!-- Artikel Utama -->
+            <article>
+                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Tenetur repellat fugit eaque quis molestiae magni eos, laudantium aliquid exercitationem deserunt sequi animi debitis harum perferendis laborum quas ipsum voluptatem quasi!</p>
+            </article>
+    
+            <!-- Form -->
+            <section>
+                <form id="bmi-form">
+                    <fieldset>
+                        <legend>Kalkulator BMI</legend>
+                        <div class="input-1">
+                            <input type="radio" id="pria" name="jenis_kelamin" value="Pria">
+                            <label for="pria">Pria</label><br>
+                            <input type="radio" id="wanita" name="jenis_kelamin" value="Wanita">
+                            <label for="wanita">Wanita</label><br>
+                        </div>
+                        <div class="input-2">
+                            <label for="berat-badan">Berat Badan (kg)</label>
+                            <input type="number" placeholder="Masukan Berat badan anda" id="berat-badan">
+                        </div>
+                        <div class="input-3">
+                            <label for="usia">Usia (tahun)</label>
+                            <input type="number" id="usia" placeholder="Masukan usia anda">
+                        </div>
+                        <div class="input-4">
+                            <label for="tinggi-badan">Tinggi badan (cm)</label>
+                            <input type="number" id="tinggi-badan" placeholder="Masukan tinggi badan anda">
+                        </div>
+        
+                        <div class="input-5">
+                            <input type="submit" id="kirim" value="Hitung BMI">
+                            <input type="reset">                
+                        </div>
+                    </fieldset>
+                </form>
+            </section>
+    
+            <!-- Form Article -->
+            <article>
+                <header>
+                    <h3>Keunggulan fitur</h3>
+                </header>
+                <ol>
+                    <li>Menghitung berat badan</li>
+                    <li>Menentukan kategori</li>
+                    <li>Mempersiapkan program penurunan</li>
+                </ol>            
+                <p>
+                    Kalkulator ini hanya boleh digunakan oleh orang dewasa (wanita hamil atau menyusui tidak boleh mengandalkan pembacaan BMI ini)
+                    dan tidak ada tindakan yang harus diambil berdasarkan nilainya selain berkonsultasi dengan orang yang memenuhi syarat seperti dokter.
+                </p>                
+                <p>
+                    Kalkulator akan memberi anda gambaran tentang perbandingan berat badan anda dnegan nilai umum. Indeks Massa Tubuh (atau BMI) dihitung sebagai berat badan anda (dalam kilogram) dibagi dengan kuadrat tinggi badan anda(dalam meter) atau BMI = kg/M2
+                </p>
+            </article>
         </section>
 
-        <!-- Form Article -->
-        <article></article>
-
-        <!-- Hasil -->
-         <article>
-            <header>
-                <h3>Hasil</h3>
-            </header>
-
-            <!-- Result Section -->
-            <section>
-
-            </section>
-
-            <!-- Result Article -->
-            <article>
-
-            </article>
-
-            <!-- General Information -->
-             <section>
-
-             </section>
-         </article>
+        <section class="hasil-section">
+            <!-- Hasil -->
+             <article>
+                <header>
+                    <h3>Hasil</h3>
+                </header>
+    
+                <!-- Result Section -->
+                <section>
+                    <div class="hasil">
+                        <center>
+                            <h3 id="bmi-result-title">Info berat badan seperti berat badan lebih</h3>
+                            <h2 id="bmi-result-value">Hasil perhitungan Berat Badan</h2>
+                            <p id="bmi-result-description">Info berat badan seperti Anda memiliki berat badan berlebih</p>
+                            <button id="download-result">Download Hasil BMI</button>                    
+                        </center>
+                    </div>
+                    <p id="bmi-result-range">Hasil BMI diantara 23 dan 25</p>
+                    <div id="bmi-diseases" class="hasil">
+                        <center>
+                            <h3>Penyakit terkait:</h3>
+                            <ul id="disease-list">
+                                <!-- Daftar penyakit akan dimasukkan di sini oleh JavaScript -->
+                            </ul>
+                        </center>
+                    </div>
+                    <div class="scale-container">
+                        <div id="bmi-scale" class="scale">
+                            <div class="scale-marker" id="bmi-marker"></div>
+                        </div>
+                        <div class="scale-labels">
+                            <span>Underweight</span>
+                            <span>Normal</span>
+                            <span>Overweight</span>
+                            <span>Obese</span>
+                        </div>
+                    </div>
+                </section>
+    
+                <!-- Result Article -->
+                <article class="saran">
+                    <p>Deskripsi dan saran dari berat badan</p>
+                    <button>Konsultasi ahli gizi Via aplikasi</button>
+                    <button>Regritasi Online Ahli Gizi</button>
+                    <p>
+                        BMI tidak sepenuhnya mewakili diagnosis menyeluruh dari kesehatan tubuh dan resiko penyakit seseorang. Anda perlu konsultasi lebih lanjut mengenai resiko dan kekhawatiran anda terkait dengan berat badan anda.
+                    </p>
+                </article>
+    
+                <!-- General Information -->
+                 <section>
+                    <!-- Hasil penyakit dari diagnosis berat badan -->
+                    <div class="hasil">
+                        <center>
+                            <h3>Beberapa penyakit yang berasal dari kegemukan :</h3>
+                            <ul>
+                                <li>Diabetes</li>
+                                <li>Hipertensi</li>
+                                <li>Sakit Jantung</li>
+                                <li>Oseoarthritis</li>                                
+                            </ul>
+                            <button>Konsultasi dokter via aplikasi</button>                    
+                            <button>Regritasi Online Sekarang</button>
+                        </center>
+                    </div>
+                 </section>
+             </article>
+        </section>
     </main>
 </body>
 </html>
