@@ -1,7 +1,7 @@
 document.addEventListener("DOMContentLoaded", () => {
     const form = document.getElementById("bmi-form");
     const downloadButton = document.getElementById("download-result");
-    let isBMICalculated = false;  // Flag to check if BMI has been calculated
+    let isBMICalculated = false;  
 
     form.addEventListener("submit", (event) => {
         event.preventDefault();
@@ -17,7 +17,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
         const bmi = beratBadan / (tinggiBadan * tinggiBadan);
         displayResult(bmi, jenisKelamin.value);
-        isBMICalculated = true;  // Set flag to true after BMI calculation
+        isBMICalculated = true;  
     });
 
     downloadButton.addEventListener("click", () => {
@@ -51,6 +51,7 @@ document.addEventListener("DOMContentLoaded", () => {
         URL.revokeObjectURL(url);
     });
 
+    // menghitung BMI dan menampilkan hasil, termasuk kategori BMI dan daftar penyakit terkait.
     function displayResult(bmi, jenisKelamin) {
         const resultTitle = document.getElementById("bmi-result-title");
         const resultValue = document.getElementById("bmi-result-value");
@@ -60,7 +61,7 @@ document.addEventListener("DOMContentLoaded", () => {
         const bmiMarker = document.getElementById("bmi-marker");
 
         let diseases = [];
-        let scalePosition = 0;  // Position for the scale marker
+        let scalePosition = 0; 
 
         resultValue.textContent = `Hasil BMI Anda: ${bmi.toFixed(2)}`;
 
@@ -89,19 +90,16 @@ document.addEventListener("DOMContentLoaded", () => {
             scalePosition = 100;
         }
 
-        // Clear existing disease list
         while (diseaseList.firstChild) {
             diseaseList.removeChild(diseaseList.firstChild);
         }
 
-        // Populate new disease list
         diseases.forEach(disease => {
             const li = document.createElement("li");
             li.textContent = disease;
             diseaseList.appendChild(li);
         });
 
-        // Update scale marker position
         bmiMarker.style.left = `${scalePosition}%`;
     }
 });
